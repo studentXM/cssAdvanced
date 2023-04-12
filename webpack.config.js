@@ -27,7 +27,7 @@ module.exports = {
               importLoaders: 2,
             },
           },
-          'less-loader',
+          "less-loader",
           postConfig,
         ],
       },
@@ -53,4 +53,7 @@ module.exports = {
       template: "./public/index.html",
     }),
   ],
+  devServer: {
+    hot: true,
+  },
 };
