@@ -1,0 +1,12 @@
+@import url("./index.less");
+
+html,
+body,
+* {
+    box-sizing: border-box;
+}
+
+.tit {
+    transition: all 200ms;
+    /* clip-path: none; */
+}
