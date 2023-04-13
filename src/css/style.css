@@ -12,4 +12,188 @@ body {
     font-size: 16px;
     line-height: 1.7;
     color: #777;
+    padding: 30px;
+}
+
+/* 
+Light green:#7ed56f 
+Medium green:#55c57a
+Dark green:#28b485
+*/
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, #7ed56fcc, #55c57ace), url('../../public/img/1.jpg');
+    background-size: cover;
+    background-position: top;
+    /* 这个属性 
+    每个值是xy的相对距离
+    它是顺时针的顺序开始计算 
+    比如0 0 
+    第一个0 代表x距离左边为0 
+    第二个0 代表y距离顶部为0 */
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    position: relative;
+}
+
+
+.text-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* background-color: red; */
+    /* 使用transform 来居中 ，原本我们会使用left - 元素的%50
+    现在我们直接使用transform 让元素位移 自身的百分之50 更方便*/
+    /* transform的位移值如果写百分比 它是相对元素自身的大小 */
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-primary {
+    color: #fff;
+    /* 使用css 把字母大写 */
+    text-transform: uppercase;
+    margin-bottom: 60px;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    /* 字体间距 */
+    letter-spacing: 35px;
+    /* 指定执行动画 */
+    animation-name: moveInLeft;
+    /* 动画执行时间 */
+    animation-duration: 1s;
+    /* 动画执行的次数 它会重复执行该动画*/
+    /* animation-iteration-count: 2; */
+    /* 动画的匀速 esae-out 由快到慢 ease-in由慢到快 */
+    animation-timing-function: ease-out;
+
+    /* 动画延迟执行 */
+    /* animation-delay:3s; */
+    /* 解决动画引起的元素抖动问题 */
+    backface-visibility: hidden;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 15px;
+    /* 这种写法是 上面的简写 */
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+
+    80% {
+        transform: translate(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translate(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    80% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    /* 清除a标签样式 */
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: all 1s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+/* btn伪元素hover状态样式 */
+.btn:hover::after {
+    /* scale 是放大属性 
+    scaleX 是x放大 
+    scaleY 同理*/
+    transform: scaleX(1.5) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    /* 第四个值 是延迟执行时间 */
+    animation: moveInBottom .5s ease-out .5s;
+    /* 动画填充属性
+    在动画为0的时候 它会隐藏元素 
+    如果我们延迟执行动画的时候 在动画执行前 元素是静止的 
+    那么这个时候如果想要隐藏元素 可以使用该属性
+    解析：在延迟动画前，元素是静止状态，在动画执行之前可以使用该属性隐藏元素*/
+    animation-fill-mode: backwards;
 }

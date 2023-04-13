@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,900">
 </head>
+
 <body>
-    <div class="tit"> 
-        <span class="child">20px的字体1</span>
-    </div>
+    <header class="header">
+        <div class="logo-box">
+            <!-- <img src="img/" alt=""> -->
+        </div>
+        <div class="text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary-main">Outdoors</span>
+                <span class="heading-primary-sub">is where life happens</span>
+            </h1>
+            <a href="#" class="btn btn-white btn-animated">Discover our tours</a>
+        </div>
+    </header>
 </body>
+
 </html>
