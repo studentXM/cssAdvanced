@@ -1,18 +1,32 @@
-@import url("./index.less");
+/* @import url("./index.scss"); */
 
-* {
+*,
+/* 给所有为元素也加上 */
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* 所有元素的盒子模型使用继承 */
+    box-sizing: inherit;
+}
+
+html {
+    /* 多数浏览器 默认字体大小是 16px 给根元素写100%font-size就代表使用浏览器默认字体大小*/
+    /* 我们要设置根元素为10px 把10px换算为百分比 */
+    /* 10px/16px= 0.625 也就是62.5%*/
+    /* 用百分比是 为了兼容用户缩放页面 如果写px页面缩放字体就不会更改 */
+    font-size: 62.5%;
 }
 
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
+    font-size: 1.6rem;
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 }
 
 /* 
@@ -36,7 +50,7 @@ Dark green:#28b485
 }
 
 
-.text-box {
+.text__box {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -52,15 +66,15 @@ Dark green:#28b485
     color: #fff;
     /* 使用css 把字母大写 */
     text-transform: uppercase;
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
     /* 字体间距 */
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     /* 指定执行动画 */
     animation-name: moveInLeft;
     /* 动画执行时间 */
@@ -76,11 +90,11 @@ Dark green:#28b485
     backface-visibility: hidden;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 15px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
     /* 这种写法是 上面的简写 */
     animation: moveInRight 1s ease-out;
 }
@@ -88,12 +102,12 @@ Dark green:#28b485
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
 
     80% {
-        transform: translate(10px);
+        transform: translate(1rem);
     }
 
     100% {
@@ -105,11 +119,11 @@ Dark green:#28b485
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     80% {
-        transform: translate(-10px);
+        transform: translate(-1rem);
     }
 
     100% {
@@ -121,11 +135,11 @@ Dark green:#28b485
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
 
     80% {
-        transform: translateY(-10px);
+        transform: translateY(-1rem);
     }
 
     100% {
@@ -139,24 +153,24 @@ Dark green:#28b485
     text-transform: uppercase;
     /* 清除a标签样式 */
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all .2s;
     position: relative;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -166,7 +180,7 @@ Dark green:#28b485
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     left: 0;
     top: 0;
@@ -174,7 +188,7 @@ Dark green:#28b485
     transition: all 1s;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 
@@ -187,7 +201,7 @@ Dark green:#28b485
     opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
     /* 第四个值 是延迟执行时间 */
     animation: moveInBottom .5s ease-out .5s;
     /* 动画填充属性

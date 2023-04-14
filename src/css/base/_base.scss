@@ -1,0 +1,28 @@
+*,
+/* 给所有为元素也加上 */
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /* 所有元素的盒子模型使用继承 */
+    box-sizing: inherit;
+}
+
+html {
+    /* 多数浏览器 默认字体大小是 16px 给根元素写100%font-size就代表使用浏览器默认字体大小*/
+    /* 我们要设置根元素为10px 把10px换算为百分比 */
+    /* 10px/16px= 0.625 也就是62.5%*/
+    /* 用百分比是 为了兼容用户缩放页面 如果写px页面缩放字体就不会更改 */
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; */
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 3rem;
+    box-sizing: border-box;
+}

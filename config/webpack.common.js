@@ -28,12 +28,12 @@ const commonConfig = {
               importLoaders: 2,
             },
           },
-          "less-loader",
+          "sass-loader",
           postConfig,
         ],
       },
       {
-        test: /\.less$/,
+        test: /\.s[ac]ss$/i,
         use: [
           "style-loader",
           {
@@ -42,7 +42,7 @@ const commonConfig = {
               importLoaders: 2,
             },
           },
-          "less-loader",
+          "sass-loader",
           postConfig,
         ],
       },

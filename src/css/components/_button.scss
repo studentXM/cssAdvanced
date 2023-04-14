@@ -1,0 +1,63 @@
+// 为了减少类名的重复性 也可以使用&嵌套
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        /* 清除a标签样式 */
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        /* btn伪元素hover状态样式 */
+        &::after {
+            /* scale 是放大属性 
+        scaleX 是x放大 
+        scaleY 同理*/
+            transform: scaleX(1.5) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    &--white {
+        background-color: #fff;
+        color: $color-grey-dark;
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        transition: all 1s;
+    }
+    &--animated {
+        /* 第四个值 是延迟执行时间 */
+        animation: moveInBottom 0.5s ease-out 0.5s;
+        /* 动画填充属性
+        在动画为0的时候 它会隐藏元素 
+        如果我们延迟执行动画的时候 在动画执行前 元素是静止的 
+        那么这个时候如果想要隐藏元素 可以使用该属性
+        解析：在延迟动画前，元素是静止状态，在动画执行之前可以使用该属性隐藏元素*/
+        animation-fill-mode: backwards;
+    }
+}

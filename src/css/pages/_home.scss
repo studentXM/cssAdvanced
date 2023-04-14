@@ -1,0 +1,11 @@
+.text__box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* background-color: red; */
+    /* 使用transform 来居中 ，原本我们会使用left - 元素的%50
+    现在我们直接使用transform 让元素位移 自身的百分之50 更方便*/
+    /* transform的位移值如果写百分比 它是相对元素自身的大小 */
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
