@@ -3,6 +3,7 @@
     /* 使用css 把字母大写 */
     text-transform: uppercase;
     margin-bottom: 6rem;
+
     &--main {
         display: block;
         font-size: 6rem;
@@ -30,5 +31,27 @@
         letter-spacing: 1.75rem;
         /* 这种写法是 上面的简写 */
         animation: moveInRight 1s ease-out;
+    }
+}
+
+
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    // 设置背景渐变色
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    // 裁剪背景只留下字体
+    -webkit-background-clip: text;
+    // 把字体的颜色 设置为透明 这样就可以实现 字体透视背景图
+    color: transparent;
+    letter-spacing: .2rem;
+    transition: all .2s;
+
+    &:hover {
+        // skew 倾斜
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba(#0000, .2);
     }
 }
