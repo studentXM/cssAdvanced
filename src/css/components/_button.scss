@@ -1,5 +1,6 @@
 // 为了减少类名的重复性 也可以使用&嵌套
 .btn {
+
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -15,6 +16,7 @@
     &:hover {
         transform: translateY(-3px);
         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+
         /* btn伪元素hover状态样式 */
         &::after {
             /* scale 是放大属性 
@@ -33,6 +35,7 @@
     &--white {
         background-color: #fff;
         color: $color-grey-dark;
+
         &::after {
             background-color: $color-white;
         }
@@ -50,6 +53,7 @@
         z-index: -1;
         transition: all 1s;
     }
+
     &--animated {
         /* 第四个值 是延迟执行时间 */
         animation: moveInBottom 0.5s ease-out 0.5s;
@@ -59,5 +63,31 @@
         那么这个时候如果想要隐藏元素 可以使用该属性
         解析：在延迟动画前，元素是静止状态，在动画执行之前可以使用该属性隐藏元素*/
         animation-fill-mode: backwards;
+    }
+}
+
+.btn-text {
+
+    &:link,
+    &:visited {
+        font-size: 1.6rem;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all .2s;
+    }
+
+    &:hover {
+        background: $color-primary;
+        color: #fff;
+        box-shadow: 0 1rem 2rem rgba(#000000, .15);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba(#000000, .15);
+        transform: translateY(0);
     }
 }
